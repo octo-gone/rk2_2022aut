@@ -6,7 +6,7 @@
 class PingPong
 {
 public:
-	static constexpr std::size_t MAX = 3;
+	static constexpr std::size_t MAX = 5;
 
 	void ping()
 	{
@@ -18,6 +18,7 @@ public:
         	cv_.notify_all();
         	cv_.wait(lock);
     	}
+        cv_.notify_all();
  	}
 
 	void pong()
@@ -30,6 +31,7 @@ public:
         	cv_.notify_all();
         	cv_.wait(lock);
     	}
+        cv_.notify_all();
 	}
 
 private:
